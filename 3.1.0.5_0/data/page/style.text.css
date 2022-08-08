@@ -97,7 +97,7 @@
 
 html,
 body {
-  background: linear-gradient(45deg, #3f51b5, #e91e1e);
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
   border: 0;
   font-family: "Roboto Mono", monospace;
   height: 100%;
@@ -1798,3 +1798,18 @@ h2 {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+#r1{
+  animation: spin 30s linear infinite;
+}
+#r2{
+  animation: spin 20s linear infinite;
+}
+
+#r3{
+  animation: spin 30s reverse linear infinite;
+}
+

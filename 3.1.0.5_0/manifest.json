@@ -6,7 +6,7 @@
          "48": "data/icons/48.png",
          "64": "data/icons/64.png"
       },
-      "default_title": "Star Clock"
+      "default_title": "Calendar Clock"
    },
    "background": {
       "service_worker": "background.js"
@@ -15,7 +15,7 @@
       "_execute_action": {
       }
    },
-   "description": "Digtal Clock With Colorfull Designs for Google Chrome🕘",
+   "description": "Analog clock With Calendar Designs for Microsoft Edge",
    "homepage_url": "https://www.codehemu.com/2022/04/star-clock-extension-amazing-clock.html",
    "icons": {
       "128": "data/icons/128.png",
@@ -24,15 +24,13 @@
       "48": "data/icons/48.png",
       "64": "data/icons/64.png"
    },
-   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4lSW5WKLcTfiD9V5K7dOz8adq7BHHhzlJ70T/Lzcrsf/iV4DobXdIHwyxcwb/l+IzGRmR3Md/KspfrnLXTcijZ+7noq9dG9ZCwBgv1TUawDh8kqmpv/D5pwXODryCEolen4zXDUYhjODZvDHjP3BlfexKfXJJnyK15vRyZlGoIwq7DlKjvZt7d/GZNVfrW1Zss9JZU9YACoRLuHou8huTJTzOKGfR1I/SdzurcrYb9ipZY718sVi0u6eYBeIolcd83QQb6+uqVZyF3I/v/lL5KDoU8XhrXCb/DekkjewI9iXAk9llFLTV5+o/F2xd5udg9eYM1d4y/H5NOUY4J68ZwIDAQAB",
-   "manifest_version": 3,
-   "name": "Star Clock — Kluk",
+    "manifest_version": 3,
+   "name": "Calendar Clock",
    "offline_enabled": true,
    "permissions": [ "storage", "contextMenus" ],
    "sandbox": {
       "pages": [ "data/interface/index.html" ]
    },
-   "short_name": "star-clock",
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "3.1.0.5"
+   "short_name": "Calendar-Clock",
+   "version": "1.1.2"
 }
