@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   var lat, lon, api_url;
 
