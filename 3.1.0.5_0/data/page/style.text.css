@@ -1798,10 +1798,10 @@ h2 {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
-@keyframes spin {
+/*@keyframes spin {
   0% {transform: rotate(0deg);}
   100% {transform: rotate(360deg);}
-}
+}*/
 #r1{
   animation: spin 30s linear infinite;
 }

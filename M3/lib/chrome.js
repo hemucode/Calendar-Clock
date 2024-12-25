@@ -16,22 +16,8 @@ app.button = {
   }
 };
 
-const redirectURLS = [
-  "opera://startpage/",
-  "browser://startpage/",
-  "chrome://startpage/",
-  "chrome://new-tab-page/",
-  "opera://new-tab-page/",
-  "browser://new-tab-page/"
-];
 
-chrome.tabs.onCreated.addListener(function(tab) {
-  for (let i = 0; i < redirectURLS.length; i++) {
-    if (tab.url === redirectURLS[i]) break; // user is trying to open startpage
-    if (i == redirectURLS.length - 1) return; // Tab is not trying to open a startpage
-  }
-  chrome.tabs.update(tab.id, { url: "data/interface/index.html" });
-});
+
 
 app.window = {
   set id (e) {

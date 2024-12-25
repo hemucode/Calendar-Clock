@@ -7,6 +7,9 @@
    },
    "app_short_name":{
       "message": "Klak"
+   },   
+   "app_tab":{
+      "message": "New Tab"
    },
    "hours":{
       "message": "24 hours"

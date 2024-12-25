@@ -1,6 +1,5 @@
-
 $(document).ready(function() {
-  var lat, lon, api_url;
+  var lat, lon, api_url,dat;
 
   if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(gotLocation);
@@ -15,16 +14,20 @@ $(document).ready(function() {
           url: api_url,
           method: 'GET',
           success: function(data) {
+            console.log(data);
+            dat = data;
             var tempr = data.main.temp;
             var location = data.name;
             var desc = data.weather.description;
             $('.temperature').text(tempr + '°');
           }
+
         });
     };
   } else {
     alert('Your browser doesnt support geolocation. Sorry.');
   }
+  console.log(dat)
 });
 
 $(function () {
