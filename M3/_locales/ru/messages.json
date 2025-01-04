@@ -1,17 +1,119 @@
 {
-   "app_description": {
-      "message": "Цифровые часы с красочным дизайном и открыть новую вкладку часов"
-   },
-   "app_name": {
-      "message": "Klak - Новая вкладка"
-   },
-   "app_short_name":{
-      "message": "Klak"
-   },
-   "hours":{
-      "message": "24 часа"
-   },
-   "new_time":{
-      "message": "Теперь вы можете выбрать 12 или 24 часа"
-   }
+  "app_description": {
+    "message": "Страница новой вкладки с простыми часами с датой и месяцем."
+  },
+  "app_name": {
+    "message": "Календарь-часы – новая вкладка"
+  },
+  "app_short_name": {
+    "message": "новая"
+  },
+  "app_tab": {
+    "message": "Новая вкладка"
+  },
+  "analog": {
+    "message": "Аналоговый"
+  },
+  "digital_t": {
+    "message": "Цифровой 12ч"
+  },
+  "digital_f": {
+    "message": "Цифровой 24 часа в сутки"
+  },
+  "hide_seconds": {
+    "message": "Скрыть секунды"
+  },
+  "analog_spin": {
+    "message": "Аналоговое вращение"
+  },
+  "stars": {
+    "message": "Звезды"
+  },
+  "hide_sidebar": {
+    "message": "Скрыть боковую панель"
+  },
+  "hover_sidebar": {
+    "message": "При наведении на боковую панель"
+  },
+  "day_name": {
+    "message": "НАЗВАНИЕ ДНЯ"
+  },
+  "day_name_text": {
+    "message": "пон вто сре чет пят суб вос"
+  },
+  "month": {
+    "message": "МЕСЯЦ"
+  },
+  "month_text": {
+    "message": "Янв Фев Ма Апр Май Июн Июл Авг Сен Окт Ноя Дек"
+  },
+  "day": {
+    "message": "ДЕНЬ"
+  },
+  "new_time": {
+    "message": "Теперь вы можете выбрать 12 или 24 часа."
+  },
+  "january": {
+    "message": "январь"
+  },
+  "february": {
+    "message": "февраль"
+  },
+  "march": {
+    "message": "Маршировать"
+  },
+  "april": {
+    "message": "апрель"
+  },
+  "may": {
+    "message": "Может"
+  },
+  "June": {
+    "message": "Июнь"
+  },
+  "july": {
+    "message": "Июль"
+  },
+  "august": {
+    "message": "Август"
+  },
+  "september": {
+    "message": "Сентябрь"
+  },
+  "october": {
+    "message": "Октябрь"
+  },
+  "november": {
+    "message": "ноябрь"
+  },
+  "december": {
+    "message": "декабрь"
+  },
+  "monday": {
+    "message": "понедельник"
+  },
+  "tuesday": {
+    "message": "вторник"
+  },
+  "wednesday": {
+    "message": "среда"
+  },
+  "thursday": {
+    "message": "четверг"
+  },
+  "friday": {
+    "message": "пятница"
+  },
+  "saturday": {
+    "message": "суббота"
+  },
+  "sunday": {
+    "message": "воскресенье"
+  },
+  "am": {
+    "message": "утра"
+  },
+  "pm": {
+    "message": "вечера"
+  }
 }

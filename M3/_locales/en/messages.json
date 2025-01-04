@@ -5,17 +5,118 @@
    "app_name": {
       "message": "Calendar Clock - New Tab"
    },
-   "app_short_name":{
-      "message": "Klak"
+   "app_short_name": {
+      "message": "newtab"
    },   
-   "app_tab":{
+   "app_tab": {
       "message": "New Tab"
    },
-   "hours":{
-      "message": "24 hours"
+   "analog": {
+      "message": "Analog"
+   },
+   "digital_t": {
+      "message": "Digital 12H"
+   },
+   "digital_f": {
+      "message": "Digital 24H"
+   },
+   "hide_seconds": {
+      "message": "Hide seconds"
+   },
+   "analog_spin":{
+      "message": "Analog spin"
+   },
+   "stars":{
+      "message": "Stars"
+   },
+   "hide_sidebar":{
+      "message": "Hide Sidebar"
+   },
+   "hover_sidebar":{
+      "message": "Hover Sidebar"
+   },
+   "day_name":{
+      "message": "DAY NAME"
+   },
+   "day_name_text":{
+      "message": "MON TUE WED THU FRI SAT SUN"
+   },
+   "month":{
+      "message": "MONTH"
+   },
+   "month_text":{
+      "message": "JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC"
+   },
+   "day":{
+      "message": "DAY"
    },
    "new_time":{
-      "message": "Now you can select 12 or 24 hours"
+      "message": "Now you can select 12 or 24 hours👉"
+   },
+   "january":{
+      "message": "January"
+   },
+   "february":{
+      "message": "February"
+   },
+   "march":{
+      "message": "March"
+   },
+   "april":{
+      "message": "April"
+   },
+   "may":{
+      "message": "May"
+   },
+   "June":{
+      "message": "June"
+   },
+   "july":{
+      "message": "July"
+   },
+   "august":{
+      "message": "August"
+   },
+   "september":{
+      "message": "September"
+   },
+   "october":{
+      "message": "October"
+   },
+   "november":{
+      "message": "November"
+   },
+   "december":{
+      "message": "December"
+   },
+   "monday":{
+      "message": "Mon"
+   },
+   "tuesday":{
+      "message": "Tue"
+   },
+   "wednesday":{
+      "message": "wed"
+   },
+   "thursday":{
+      "message": "Thu"
+   },
+   "friday":{
+      "message": "Fri"
+   },
+   "saturday":{
+      "message": "Sat"
+   },
+   "sunday":{
+      "message": "Sun"
+   },
+   "sunday":{
+      "message": "Sun"
+   },
+   "am":{
+      "message": "AM"
+   },
+   "pm":{
+      "message": "PM"
    }
-
 }

@@ -1,8 +1,35 @@
 $(()=> {
+  var API = chrome || browser;
+  var isDeletedSidebar = false, isHover = false;
   var date, dayName, day, month, year;
   var cssRoot = ["backgroung-color", "text-color", "transparent-color", "ring-color", "opposite-color"];
-  var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var days = [
+    API.i18n.getMessage('sunday'),
+    API.i18n.getMessage('monday'),
+    API.i18n.getMessage('tuesday'),
+    API.i18n.getMessage('wednesday'),
+    API.i18n.getMessage('thursday'),
+    API.i18n.getMessage('friday'),
+    API.i18n.getMessage('saturday')
+  ];
+  // "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+
+  var monthName = [
+    API.i18n.getMessage('january'),
+    API.i18n.getMessage('february'),
+    API.i18n.getMessage('march'),
+    API.i18n.getMessage('april'),
+    API.i18n.getMessage('may'),
+    API.i18n.getMessage('june'),
+    API.i18n.getMessage('july'),
+    API.i18n.getMessage('august'),
+    API.i18n.getMessage('september'),
+    API.i18n.getMessage('october'),
+    API.i18n.getMessage('november'),
+    API.i18n.getMessage('december')
+  ];
+
+  // "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 
   var range = 270,
   sectionsDayName = 7,
@@ -14,6 +41,40 @@ $(()=> {
   dayColor = '#FF2D55',
   monthColor = '#007AFF',
   dayNameColor = '#4CD964';
+
+  new Promise((resolve) => {
+    const elements = $("[data-message]");
+    for (const element of elements) {
+      const key = element.dataset.message;
+      const message = API.i18n.getMessage(key);
+      if (message) {
+        element.textContent = message;
+      } else {
+        console.error("Missing API.i18n message:", key);
+      }
+    }
+    resolve();
+  });
+  
+
+
+  $("body").mousemove(function(e) {
+    if (isHover) {
+      if (e.pageX > 100) {
+        if (!$('#sidebar').hasClass('slidshow')) {
+          $('#sidebar').addClass('slidshow')
+        }
+      }else{
+        if ($('#sidebar').hasClass('slidshow')) {
+          $('#sidebar').removeClass('slidshow')
+        }
+      }
+    }else{
+      if ($('#sidebar').hasClass('slidshow')) {
+          $('#sidebar').removeClass('slidshow')
+      }
+    }
+  })
   
   const rotateRing = (input, sections, characters, ring, text, color)=> {
     var sectionWidth = range / sections;
@@ -67,7 +128,7 @@ $(()=> {
 
       
 
-      $(".pm").text(hours > 11 ? 'pm': 'am');
+      $(".pm").text(hours > 11 ? API.i18n.getMessage('pm') : API.i18n.getMessage('am'));
       $(".sec").text(seconds < 10 ? '0'+seconds : seconds);
       $("#thours").text((halfHours < 10 ? '0' + halfHours : halfHours) + ':' + (minutes < 10 ? '0'+minutes : minutes));
       $("#fhours").text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0'+minutes : minutes));
@@ -88,14 +149,32 @@ $(()=> {
 
   const localStorage = async()=>{
     return new Promise((resolve, reject) =>{
-        chrome.storage.local.get({
+        API.storage.local.get({
           "timeType": true,
           "colors": ["#3A5E85","#a3caf5","#217cde","#212c38", "#d9e0e8"],
+          "favorite": [
+            "https://www.youtube.com/",
+            "https://mail.google.com/",
+            "https://drive.google.com/",
+            "https://www.instagram.com/",
+            "https://www.codehemu.com/",
+            "https://music.youtube.com/",
+            "https://chatgpt.com/", 
+            "https://www.codehemu.com/",
+            "https://web.telegram.org/",
+            "https://x.com/",
+            "https://www.reddit.com/",
+            "https://amazon.com/",
+            "https://translate.google.com/",
+
+          ],
           "activeTheme": false,
           "activeType": 'analog',
           "hideSecond": false,
           "spin": false,
           "stars": false,
+          "hideSidebar": false,
+          "hoverSidebar": false,
           "newTime": true
         }, (options)=>{
             resolve(options);
@@ -128,25 +207,37 @@ $(()=> {
     try {
       responseOptions.activeTheme ? $('#'+responseOptions.activeTheme) ? $('#'+responseOptions.activeTheme).addClass("active") : null : null;
       responseOptions.activeType ? $('#'+responseOptions.activeType) ? $('#'+responseOptions.activeType).addClass("active") : null : null;
-
+      isHover = responseOptions.hoverSidebar;
+      
       $("#checkedseconds")[0].checked=responseOptions.hideSecond;
+      $("#checkedsidebar")[0].checked=responseOptions.hideSidebar;
       $("#checkedspin")[0].checked=responseOptions.spin;
+      $("#checkedhover")[0].checked=responseOptions.hoverSidebar;
       responseOptions.activeType !=='analog' ? !($("#cSpan").hasClass("hide")) ? $("#cSpan").addClass("hide") : null: null;
+      responseOptions.hideSidebar ? 
+      !($("#cSlide").hasClass("hide")) ? $("#cSlide").addClass("hide") : null: 
+      toogleClass("#cSlide", responseOptions.hoverSidebar, 'active');
       $("#checkedstars")[0].checked=responseOptions.stars;
       hideSeconds(responseOptions.hideSecond);
+      hideSidebars(responseOptions.hideSidebar);
       ringSpin(responseOptions.spin);
       toogleClass("#cSpan", responseOptions.spin, 'active');
       toogleClass("#cStars", responseOptions.stars, 'active');
       responseOptions.stars ? $(".starshide").css({'display':'block'}) : null;
       setPopup(responseOptions.newTime);
+
+      for(url of responseOptions.favorite){
+        setFev(url);
+      }
     }catch(err) {}
 
     date = new Date();
     dayName = date.getDay(); 
     day = date.getDate(); 
+    year = date.getFullYear();
     monthIndex = date.getMonth();
     month = monthIndex + 1;
-    $('.date').text(`${days[dayName]}, ${monthName[monthIndex]} ${day}`)
+    $('.date').text(`${days[dayName]}, ${monthName[monthIndex]} ${day}, ${year}`)
 
     if (dayName == 0) {
       dayName = 7;
@@ -187,8 +278,14 @@ $(()=> {
     $("#checkedseconds").click(async(event)=>{
       const hideSecond = event.currentTarget.checked;
       hideSeconds(hideSecond);
-      await chrome.storage.local.set({hideSecond});
+      await API.storage.local.set({hideSecond});
 
+    });
+
+    $("#checkedsidebar").click(async(event)=>{
+      const hideSidebar = event.currentTarget.checked;
+      hideSidebars(hideSidebar);
+      await API.storage.local.set({hideSidebar});
     });
 
     $("#checkedspin").click(async(event)=>{
@@ -196,20 +293,27 @@ $(()=> {
       ringSpin(spin);
 
       toogleClass("#cSpan", spin, 'active');
-      await chrome.storage.local.set({spin});
+      await API.storage.local.set({spin});
     });
 
     $("#checkedstars").click(async(event)=>{
       const stars = event.currentTarget.checked;
       toogleClass("#cStars", stars, 'active');
       stars ? $(".starshide").css({'display':'block'}) : $(".starshide").css({'display':'none'});
-      await chrome.storage.local.set({stars});
+      await API.storage.local.set({stars});
     });
 
-    document.addEventListener("click", function (event) {
+    $("#checkedhover").click(async(event)=>{
+      const hoverSidebar = event.currentTarget.checked;
+      isHover = hoverSidebar;
+      toogleClass("#cSlide", hoverSidebar, 'active');
+      await API.storage.local.set({hoverSidebar});
+    });
+
+    document.addEventListener("click",  async(event)=> {
       if (event.target.closest(".theme-btn") || event.target.closest(".dropdown-container")) {
           return;
-      } else {
+      }else {
         if ($(".theme-menu-btn").hasClass("active")) {
           $(".theme-menu-btn").removeClass("active");
           $("#theme-dropdown").removeClass("active");
@@ -220,10 +324,42 @@ $(()=> {
         }
       }
 
+      if (event.target.closest(".imgfav")) {
+        const dataLink = event.target.getAttribute('data-link');
+        if (dataLink !== null) {
+          if (isDeletedSidebar) {
+            responseOptions = await localStorage();
+            allfavorite = responseOptions.favorite;
+            var favorite = [];
+            for (let i = 0; i < allfavorite.length; i++) {
+              if (allfavorite[i] == dataLink) {
+                $(".fav-container").each((index,item)=>{
+                  if (item.getAttribute('data-link') == dataLink) {
+                    item.remove();
+                  }
+                })
+              }else{
+                favorite.push(allfavorite[i]);
+              }
+            }
+            await API.storage.local.set({favorite});
+
+          }else{
+            isValidURL(dataLink) ? window.location.href = dataLink : "";
+          }
+        }
+        // console.log(event.target.getAttribute('data-link'));
+      }
+
     });
 
+
+
+
     $(".settings-menu-btn").click(async()=>{
-      await chrome.storage.local.set({"newTime": false});
+      isDeletedSidebar = false;
+      deletedLink();
+      await API.storage.local.set({"newTime": false});
       setPopup(false);
       if (!($(".settings-menu-btn").hasClass("active"))) {
           $(".settings-menu-btn").addClass("active");
@@ -239,7 +375,9 @@ $(()=> {
      });
 
     $(".theme-menu-btn").click(async()=>{
-      await chrome.storage.local.set({"newTime": false});
+      isDeletedSidebar = false;
+      deletedLink();
+      await API.storage.local.set({"newTime": false});
       setPopup(false);
       if (!($(".theme-menu-btn").hasClass("active"))) {
         $(".theme-menu-btn").addClass("active");
@@ -280,7 +418,7 @@ $(()=> {
           for (let i = 0; i < allcolors.length; i++) {
             colors.push(i===0 ? defaultColor : allcolors[i])
           }
-          await chrome.storage.local.set({colors, activeTheme});
+          await API.storage.local.set({colors, activeTheme});
         });
       }
     });
@@ -302,7 +440,7 @@ $(()=> {
 
         $(this).addClass("active");
         changeDesign(activeType);
-        await chrome.storage.local.set({activeType});
+        await API.storage.local.set({activeType});
       });
     })
 
@@ -314,7 +452,7 @@ $(()=> {
         });
         if (!$("#theme-custom").hasClass("active")) {
           $("#theme-custom").addClass("active")
-          await chrome.storage.local.set({ "activeTheme" : "theme-custom"});
+          await API.storage.local.set({ "activeTheme" : "theme-custom"});
         }
 
     });
@@ -387,12 +525,13 @@ $(()=> {
         for (let tag in colors) { 
           $(":root").get(0).style.setProperty("--" + cssRoot[tag], colors[tag]);
         }
-        await chrome.storage.local.set({colors});
+        await API.storage.local.set({colors});
       }
     }
 
   }
   init();
+
   const changeDesign = (cls)=>{
       try {
         $(".clock-design").each(function(){
@@ -413,6 +552,16 @@ $(()=> {
     }
   }
 
+
+
+  const hideSidebars =(ishide) =>{
+    const ele = ["#cSidebar", "#sidebar","#cSlide"];
+    const cls = ["active","hide","hide"];
+    for (let i = 0; i < ele.length; i++) {
+      toogleClass(ele[i], ishide, cls[i]);
+    }
+  }
+
   const ringSpin = (isSpin)=>{
     const spinEle = ["r1", "r2", "r3"];
     for (let i = 0; i < spinEle.length; i++) {
@@ -421,8 +570,10 @@ $(()=> {
   }
 
   const toogleClass = (ele, isActive, className)=>{
-    if (isActive && !($(ele).hasClass(className))) {
-      $(ele).addClass(className)
+    if (isActive){
+      if (!($(ele).hasClass(className))) {
+        $(ele).addClass(className)
+      }
     }else if ($(ele).hasClass(className)) {
       $(ele).removeClass(className)
     }
@@ -442,4 +593,151 @@ $(()=> {
     }
   }
 
+  const setFev = (urls) =>{
+    var url = urls;
+    if (url == '') return;
+    if (!isValidURL(url)) return;
+    try{
+      url = new URL(urls);
+      if (url.origin == null) return;
+      var div = document.createElement("div");
+      div.className = 'fav-container';
+      div.title = url.host;
+      div.setAttribute('data-link', urls);
+      $("#favorite")[0].appendChild(div);
+      var img = document.createElement("img");
+      img.setAttribute('loading', 'lazy');
+      img.className = 'imgfav';
+      img.setAttribute('data-link', urls);
+      switch(url.hostname) {
+        case 'www.youtube.com':
+          img.src ='../icons/youtube.png';
+          break;
+        case 'mail.google.com':
+          img.src ='../icons/gmail.png';
+          break;
+        case 'drive.google.com':
+          img.src ='../icons/drive.png';
+          break;  
+        case 'www.codehemu.com':
+          img.src ='../icons/codehemu.png';
+          break; 
+        case 'music.youtube.com':
+          img.src ='../icons/music.png';
+          break;             
+        default:
+          img.src = navigator.onLine ? `https://www.google.com/s2/favicons?sz=64&domain_url=${url.host}` : "../icons/link.png";
+      }
+
+      
+
+      div.appendChild(img);
+      var img2 = document.createElement("img");
+      img2.className = 'imgClose';
+      img2.src = '../icons/close.png';
+      div.appendChild(img2);
+
+    }catch(err) {}
+  }
+
+
+  const popup = new Popup({
+    id: "favpopup",
+    title: "Edit Sidebar",
+    content: '',
+    editHTML: [
+      {
+        element: "input",
+        id: "addfavurl" , 
+        placeholder: "Enter Favorite URL", 
+        autocomplete: "off"
+      },
+      {
+        element: "p",
+        id: "favalart",
+      },
+      {
+        element: "button",
+        id: "favsave",
+        text: "Save"
+      }
+    ],
+    backgroundColor: "#000",
+    inputHeightMultiplier: 1.8,
+    titleColor: "#fff",
+    sideMargin: "2.9vw",
+    borderWidth: ".2em",
+    fontSizeMultiplier: 1,
+    titleMargin: "4%",
+    widthMultiplier: .8,
+    underlineLinks: true,
+    buttonWidth: '200px',
+    loadCallback: () => {
+      $("#favsave").click(async()=>{
+        url = $("#addfavurl").val().toLowerCase();
+        if (isValidURL(url)){
+          responseOptions = await localStorage();
+          var favorite = responseOptions.favorite;
+          if (favorite.includes(url)){
+            $("#favalart") ? $("#favalart").text("Don't repeat same URL ..!") : '';
+          }else{
+            setFev(url);
+            favorite.push(url);
+            $("#addfavurl").val('');
+            $("#favalart") ? $("#favalart").text("") : '';
+            popup.hide();
+            await API.storage.local.set({favorite});
+          }
+        }else{
+          $("#favalart") ? $("#favalart").text("Enter valid url..!"): '';
+        }
+       
+
+
+      });
+    }
+  });
+
+  
+  $("#addfav").click(()=>{
+    isDeletedSidebar = false;
+    deletedLink();
+    if ($(".theme-menu-btn").hasClass("active")) {
+      $(".theme-menu-btn").removeClass("active");
+      $("#theme-dropdown").removeClass("active");
+    }
+    if ($(".settings-menu-btn").hasClass("active")) {
+      $(".settings-menu-btn").removeClass("active");
+      $("#settings-dropdown").removeClass("active");
+    }
+    popup.show();
+  });
+
+  $("#delfav").click(()=>{
+    isDeletedSidebar = isDeletedSidebar ? false : true;
+    deletedLink();
+
+  });
+
+  const isValidURL = (string) => {
+    let url;
+    try{
+      url = new URL(string);
+      return url.origin ? true : false;
+    }catch(err) {
+      return false;
+    }
+    
+  };
+
+  const deletedLink = ()=>{
+    isDeletedSidebar && !$("#favorite").hasClass("deleted") ? 
+    $("#favorite").addClass("deleted") : 
+    $("#favorite").hasClass("deleted") ? 
+    $("#favorite").removeClass("deleted") : "";
+  }
+
+
+
 });
+

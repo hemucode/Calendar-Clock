@@ -1,18 +1,119 @@
 {
-   "app_description": {
-      "message": "Reloj digital con diseños coloridos y reloj con nueva pestaña abierta"
-   },
-   "app_name": {
-      "message": "Klak - Nueva pestaña"
-   },
-   "app_short_name":{
-      "message": "Klak"
-   },
-   "hours":{
-      "message": "24 horas"
-   },
-   "new_time":{
-      "message": "Ahora puedes seleccionar 12 o 24 horas"
-   }
-
+  "app_description": {
+    "message": "la página Nueva pestaña con un reloj simple con fecha y mes."
+  },
+  "app_name": {
+    "message": "Reloj calendario - Nueva pestaña"
+  },
+  "app_short_name": {
+    "message": "nueva"
+  },
+  "app_tab": {
+    "message": "Nueva pestaña"
+  },
+  "analog": {
+    "message": "Cosa análoga"
+  },
+  "digital_t": {
+    "message": "digitales 12h"
+  },
+  "digital_f": {
+    "message": "Digitales 24H"
+  },
+  "hide_seconds": {
+    "message": "Ocultar segundos"
+  },
+  "analog_spin": {
+    "message": "giro analógico"
+  },
+  "stars": {
+    "message": "estrellas"
+  },
+  "hide_sidebar": {
+    "message": "Ocultar barra lateral"
+  },
+  "hover_sidebar": {
+    "message": "Barra lateral flotante"
+  },
+  "day_name": {
+    "message": "NOMBRE DEL DÍA"
+  },
+  "day_name_text": {
+    "message": "LUN MAR MIE JUE VIE SAB DOM"
+  },
+  "month": {
+    "message": "MES"
+  },
+  "month_text": {
+    "message": "ENE FEB MAR ABR MAY JUN JUL AGO SEP OCT NOV DIC"
+  },
+  "day": {
+    "message": "DÍA"
+  },
+  "new_time": {
+    "message": "Ahora puedes seleccionar 12 o 24 horas"
+  },
+  "january": {
+    "message": "Enero"
+  },
+  "february": {
+    "message": "Febrero"
+  },
+  "march": {
+    "message": "Marzo"
+  },
+  "april": {
+    "message": "Abril"
+  },
+  "may": {
+    "message": "Puede"
+  },
+  "June": {
+    "message": "Junio"
+  },
+  "july": {
+    "message": "Julio"
+  },
+  "august": {
+    "message": "Agosto"
+  },
+  "september": {
+    "message": "Septiembre"
+  },
+  "october": {
+    "message": "Octubre"
+  },
+  "november": {
+    "message": "Noviembre"
+  },
+  "december": {
+    "message": "Diciembre"
+  },
+  "monday": {
+    "message": "lunes"
+  },
+  "tuesday": {
+    "message": "martes"
+  },
+  "wednesday": {
+    "message": "miércoles"
+  },
+  "thursday": {
+    "message": "jueves"
+  },
+  "friday": {
+    "message": "viernes"
+  },
+  "saturday": {
+    "message": "sábado"
+  },
+  "sunday": {
+    "message": "domingo"
+  },
+  "am": {
+    "message": "SOY"
+  },
+  "pm": {
+    "message": "PM"
+  }
 }

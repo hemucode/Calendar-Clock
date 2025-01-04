@@ -1,18 +1,119 @@
 {
-   "app_description": {
-      "message": "Digitaluhr mit farbenfrohen Designs und neuer Tab-Uhr öffnen"
-   },
-   "app_name": {
-      "message": "Klak - Neuer Tab"
-   },
-   "app_short_name":{
-      "message": "Klak"
-   },
-   "hours":{
-      "message": "24 Stunden"
-   },
-   "new_time":{
-      "message": "Jetzt können Sie 12 oder 24 Stunden auswählen"
-   }
-
+  "app_description": {
+    "message": "die Seite „Neuer Tab“ mit einer einfachen Uhr mit Datum und Monat."
+  },
+  "app_name": {
+    "message": "Kalenderuhr – Neuer Tab"
+  },
+  "app_short_name": {
+    "message": "Newtab"
+  },
+  "app_tab": {
+    "message": "Neuer Tab"
+  },
+  "analog": {
+    "message": "Analog"
+  },
+  "digital_t": {
+    "message": "Digital 12H"
+  },
+  "digital_f": {
+    "message": "Digital 24H"
+  },
+  "hide_seconds": {
+    "message": "Sekunden ausblenden"
+  },
+  "analog_spin": {
+    "message": "Analoger Spin"
+  },
+  "stars": {
+    "message": "Sterne"
+  },
+  "hide_sidebar": {
+    "message": "Seitenleiste ausblenden"
+  },
+  "hover_sidebar": {
+    "message": "Bewegen Sie den Mauszeiger über die Seitenleiste"
+  },
+  "day_name": {
+    "message": "TAGESNAME"
+  },
+  "day_name_text": {
+    "message": "MON DIE MIT DON FRE SAM SON"
+  },
+  "month": {
+    "message": "MONAT"
+  },
+  "month_text": {
+    "message": "JAN FEB MAR APR MAI JUN JUL AUG SEP OKT NOV DEZ"
+  },
+  "day": {
+    "message": "TAG"
+  },
+  "new_time": {
+    "message": "Jetzt können Sie 12 oder 24 Stunden auswählen"
+  },
+  "january": {
+    "message": "Januar"
+  },
+  "february": {
+    "message": "Februar"
+  },
+  "march": {
+    "message": "Marsch"
+  },
+  "april": {
+    "message": "April"
+  },
+  "may": {
+    "message": "Mai"
+  },
+  "June": {
+    "message": "Juni"
+  },
+  "july": {
+    "message": "Juli"
+  },
+  "august": {
+    "message": "August"
+  },
+  "september": {
+    "message": "September"
+  },
+  "october": {
+    "message": "Oktober"
+  },
+  "november": {
+    "message": "November"
+  },
+  "december": {
+    "message": "Dezember"
+  },
+  "monday": {
+    "message": "Montag"
+  },
+  "tuesday": {
+    "message": "Dienstag"
+  },
+  "wednesday": {
+    "message": "Mittwoch"
+  },
+  "thursday": {
+    "message": "Donnerstag"
+  },
+  "friday": {
+    "message": "Freitag"
+  },
+  "saturday": {
+    "message": "Samstag"
+  },
+  "sunday": {
+    "message": "Sonntag"
+  },
+  "am": {
+    "message": "AM"
+  },
+  "pm": {
+    "message": "PM"
+  }
 }

@@ -17,6 +17,9 @@ var core = {
         app.interface.id = '';
       }
     },
+    "sidebar": function(e) {
+      console.log(e.url)
+    },
     "button": function () {
       const context = config.interface.context;
       const url = app.interface.path + '?' + context;

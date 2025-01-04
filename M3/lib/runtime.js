@@ -1,21 +1,20 @@
 app.version = function () {return API.runtime.getManifest().version};
-app.homepage = function () {return API.runtime.getManifest().homepage_url};
 
 if (!navigator.webdriver) {
-  app.on.installed(function (details) {
-    app.tab.query.index(function (index) {
-      switch (details.reason) {
-        case API.runtime.OnInstalledReason.INSTALL:
-          console.log("install" + app.version());
-        case API.runtime.OnInstalledReason.UPDATE:  
-          console.log("update" + app.version());
-
+  app.on.uninstalled(config.homepage() + "#uninstall");
+  app.on.installed(function (e) {
+    app.on.management(function (result) {
+      if (result.installType === "normal") {
+        app.tab.query.index(function (index) {
+          var previous = e.previousVersion !== undefined && e.previousVersion !== app.version();
+          var doupdate = previous && parseInt((Date.now() - config.welcome.lastupdate) / (24 * 3600 * 1000)) > 45;
+          if (e.reason === "install" || (e.reason === "update" && doupdate)) {
+            var url = config.homepage();
+            app.tab.open(url, index, e.reason === "install");
+            config.welcome.lastupdate = Date.now();
+          }
+        });
       }
-      app.tab.open(app.homepage(), index);
     });
-
   });
-
-  app.on.uninstalled(app.homepage() + "#uninstall");
-
 }

@@ -1,18 +1,119 @@
 {
-   "app_description": {
-      "message": "다채로운 디자인의 디지털 시계와 새 탭 시계 열기"
-   },
-   "app_name": {
-      "message": "Klak - 새 탭"
-   },
-   "app_short_name":{
-      "message": "Klak"
-   },
-   "hours":{
-      "message": "24시간"
-   },
-   "new_time":{
-      "message": "이제 12시간 또는 24시간을 선택할 수 있습니다."
-   }
-
+  "app_description": {
+    "message": "날짜와 월이 포함된 간단한 시계가 있는 새 탭 페이지."
+  },
+  "app_name": {
+    "message": "달력 시계 - 새 탭"
+  },
+  "app_short_name": {
+    "message": "새 탭"
+  },
+  "app_tab": {
+    "message": "새 탭"
+  },
+  "analog": {
+    "message": "비슷한 물 건"
+  },
+  "digital_t": {
+    "message": "디지털 12H"
+  },
+  "digital_f": {
+    "message": "디지털 24시간"
+  },
+  "hide_seconds": {
+    "message": "초 숨기기"
+  },
+  "analog_spin": {
+    "message": "아날로그 스핀"
+  },
+  "stars": {
+    "message": "별"
+  },
+  "hide_sidebar": {
+    "message": "사이드 바 숨기기"
+  },
+  "hover_sidebar": {
+    "message": "사이드바 호버"
+  },
+  "day_name": {
+    "message": "요일 이름"
+  },
+  "day_name_text": {
+    "message": "월요일 화요일 수요일 목요일 금요일 토요일 일요일"
+  },
+  "month": {
+    "message": "월"
+  },
+  "month_text": {
+    "message": "1월 2월 3월 4월 5월 6월 7월 8월 9월 10월 11월 12월"
+  },
+  "day": {
+    "message": "낮"
+  },
+  "new_time": {
+    "message": "이제 12시간 또는 24 시간을 선택할 수 있습니다."
+  },
+  "january": {
+    "message": "1월"
+  },
+  "february": {
+    "message": "2월"
+  },
+  "march": {
+    "message": "3월"
+  },
+  "april": {
+    "message": "4월"
+  },
+  "may": {
+    "message": "5월"
+  },
+  "June": {
+    "message": "6월"
+  },
+  "july": {
+    "message": "칠월"
+  },
+  "august": {
+    "message": "팔월"
+  },
+  "september": {
+    "message": "구월"
+  },
+  "october": {
+    "message": "십월"
+  },
+  "november": {
+    "message": "십 일월"
+  },
+  "december": {
+    "message": "12월"
+  },
+  "monday": {
+    "message": "월요일"
+  },
+  "tuesday": {
+    "message": "화요일"
+  },
+  "wednesday": {
+    "message": "수요일"
+  },
+  "thursday": {
+    "message": "목요일"
+  },
+  "friday": {
+    "message": "금요일"
+  },
+  "saturday": {
+    "message": "토 요일"
+  },
+  "sunday": {
+    "message": "일요일"
+  },
+  "am": {
+    "message": "오전"
+  },
+  "pm": {
+    "message": "오후"
+  }
 }

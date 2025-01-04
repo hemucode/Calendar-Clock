@@ -58,15 +58,98 @@ header {
     position: relative;
     text-align: right;
     z-index: 2;
+    margin-left: 100px;
 }
-.sidebar{
-    position: absolute;
-    width: 53px;
-    height: 100%;
-    border-radius: 0 7px 7px 0;
-    background: var(--ring-color);
+#sidebar{
+  position: fixed;
+  width: 53px;
+  height: 100%;
+  border-radius: 0 7px 7px 0;
+  background: var(--ring-color);
+  transition: transform 0.5s, opacity 0.5s;
 }
 
+.slidshow{
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+#favsave{
+  font-size: 20px;
+  border: 2px solid;
+  border-radius: 20px;
+  background: var(--ring-color);
+  color: var(--text-color);
+}
+
+.popup-title,.popup-close,#favalart{
+  color: var(--text-color)!important;
+}
+.popup-content{
+  border-color: var(--text-color)!important;
+}
+#deletex{
+  fill: white !important;
+}
+.imgfav{
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.imgfav:hover{
+  width: 22px;
+  height: 22px;
+
+}
+
+.fav-btn-con{
+  padding: 8px;
+  position: fixed;
+  width: 47px;
+  height: 95px;
+  bottom: 0px;
+  background-color: var(--ring-color);
+}
+.fav-container{
+  margin-bottom: 12px;
+  width: 34px;
+  padding: 5px;
+  border-radius: 11px;
+  background: var(--backgroung-color);
+  justify-items: center;
+  display: grid;
+}
+#favorite.deleted .fav-container {
+  background: #ff3535a1;
+}
+#favorite.deleted .fav-container .imgClose{
+  display: block !important;
+}
+
+#favorite{
+  padding: 8px;
+}
+.imgClose{
+  display: none;
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    margin-left: -28px;
+    margin-top: -7px;
+}
+
+.setting_sidebar.history{
+  padding: 3px;
+  position: fixed;
+  bottom: 0px;
+  cursor: pointer;
+}
+.setting_sidebar.add{
+  position: fixed;
+  bottom: 50px;
+  cursor: pointer;
+}
 .dropdown-container {
     display: inline-block;
     position: relative;
@@ -272,10 +355,14 @@ header {
     opacity: 1;
 }
 .clock-design{
+  margin: 150px;
   display: none;
   visibility: hidden;
 }
+.popup#favpopup .popup-content {
+  background-color: var(--backgroung-color)!important;
 
+}
 .show{
   display: flex;
   visibility: visible !important;

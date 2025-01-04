@@ -1,18 +1,119 @@
 {
-   "app_description": {
-      "message": "具有彩色设计的数字时钟并打开新标签时钟"
-   },
-   "app_name": {
-      "message": "Klak - 新标签"
-   },
-   "app_short_name":{
-      "message": "Klak"
-   },
-   "hours":{
-      "message": "24 小时"
-   },
-   "new_time":{
-      "message": "现在您可以选择 12 或 24 小时"
-   }
-
+  "app_description": {
+    "message": "新标签页带有一个带有日期和月份的简单时钟。"
+  },
+  "app_name": {
+    "message": "日历时钟 - 新标 签"
+  },
+  "app_short_name": {
+    "message": "新标签页"
+  },
+  "app_tab": {
+    "message": "新标签"
+  },
+  "analog": {
+    "message": "模拟"
+  },
+  "digital_t": {
+    "message": "数字12小时"
+  },
+  "digital_f": {
+    "message": "数字24小时"
+  },
+  "hide_seconds": {
+    "message": "隐藏秒数"
+  },
+  "analog_spin": {
+    "message": "模拟旋转"
+  },
+  "stars": {
+    "message": "星星"
+  },
+  "hide_sidebar": {
+    "message": "隐藏侧边栏"
+  },
+  "hover_sidebar": {
+    "message": "悬停侧边栏"
+  },
+  "day_name": {
+    "message": "日期名称"
+  },
+  "day_name_text": {
+    "message": "周一 周二 周三 周四  周五 周六 周日"
+  },
+  "month": {
+    "message": "月"
+  },
+  "month_text": {
+    "message": "一月 二月 三月 四月 五月 六月 七月 八月 九月 十月 十一月 十二月"
+  },
+  "day": {
+    "message": "天"
+  },
+  "new_time": {
+    "message": "现在您可以选择 12 或 24 小时"
+  },
+  "january": {
+    "message": "一月"
+  },
+  "february": {
+    "message": "二月"
+  },
+  "march": {
+    "message": "行进"
+  },
+  "april": {
+    "message": "四月"
+  },
+  "may": {
+    "message": "可能"
+  },
+  "June": {
+    "message": "六月"
+  },
+  "july": {
+    "message": "七月"
+  },
+  "august": {
+    "message": "八月"
+  },
+  "september": {
+    "message": "九月"
+  },
+  "october": {
+    "message": "十月"
+  },
+  "november": {
+    "message": "十一月"
+  },
+  "december": {
+    "message": "十二月"
+  },
+  "monday": {
+    "message": "周一"
+  },
+  "tuesday": {
+    "message": "周二"
+  },
+  "wednesday": {
+    "message": "周三"
+  },
+  "thursday": {
+    "message": "周四"
+  },
+  "friday": {
+    "message": "星期五"
+  },
+  "saturday": {
+    "message": "周六"
+  },
+  "sunday": {
+    "message": "星期日"
+  },
+  "am": {
+    "message": "是"
+  },
+  "pm": {
+    "message": "下午"
+  }
 }

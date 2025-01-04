@@ -105,6 +105,9 @@ app.storage = {
 
 
 app.on = {
+  "management": function (callback) {
+    API.management.getSelf(callback);
+  },
   "uninstalled": function (url) {
     API.runtime.setUninstallURL(url, function () {});
   },
@@ -262,3 +265,5 @@ app.interface = {
     });
   }
 };
+
+

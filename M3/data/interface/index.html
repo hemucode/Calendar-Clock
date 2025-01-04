@@ -2,19 +2,41 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Calendar Clock</title>
+  <title data-message='app_tab'></title>
   <link rel="stylesheet" href="monolith.min.css"/> <!-- 'monolith' theme -->
   <link rel='stylesheet' href='style.css'>
 </head>
 <body translate="no" >
+  <div id="sidebar" class="hide">
+    <div id="favorite"></div>
+    <div class="fav-btn-con">
+      <div id="addfav" class="setting_sidebar add">
+        <svg width="35" height="35" viewBox="0 0 24 24" xml:space="preserve">
+          <line fill="none" stroke="rgb(222, 234, 235)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="12" x2="12" y1="19" y2="5"/>
+          <line fill="none" stroke="rgb(222, 234, 235)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="5" x2="19" y1="12" y2="12"/>
+        </svg>
+      </div>
+      <div id="delfav" class="setting_sidebar history">
+        <svg width="30" height="30" viewBox="0 -0.5 21 21" xml:space="preserve">
+         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Dribbble-Light-Preview" transform="translate(-179.000000, -360.000000)" fill="#000000">
+              <g id="icons" transform="translate(56.000000, 160.000000)">
+                  <path d="M130.35,216 L132.45,216 L132.45,208 L130.35,208 L130.35,216 Z M134.55,216 L136.65,216 L136.65,208 L134.55,208 L134.55,216 Z M128.25,218 L138.75,218 L138.75,206 L128.25,206 L128.25,218 Z M130.35,204 L136.65,204 L136.65,202 L130.35,202 L130.35,204 Z M138.75,204 L138.75,200 L128.25,200 L128.25,204 L123,204 L123,206 L126.15,206 L126.15,220 L140.85,220 L140.85,206 L144,206 L144,204 L138.75,204 Z" id="deletex">
+                  </path>
+              </g>
+          </g>
+         </g>
+        </svg>
+      </div>
+    </div>
+
+  </div>
   <div id="stars" class="starshide"></div>
   <div id="stars2" class="starshide"></div>
   <div id="stars3" class="starshide"></div>
 
-<div class="sidebar"></div>  
-
 <header id="settings"> 
-  <div class="tooltip hide" id="newtime" data-message="new_time">Now you can select 12 or 24 hours👉</div>
+  <div class="tooltip hide" id="newtime" data-message="new_time"></div>
   <span class="dropdown-container"> 
     <button aria-label="Select a theme" class="theme-menu-btn" type="button"> 
       <svg width="35" height="35" viewBox="0 0 36 36" xml:space="preserve" fill="none">
@@ -46,24 +68,37 @@
     </button>
 
     <nav id="settings-dropdown" class="dropdown"> 
-      <button id="analog" class="clock-type" data-type="analog">Analog</button> 
-      <button id="thour" class="clock-type" data-type="hr12">Digital 12H</button> 
-      <button id="fhour" class="clock-type" data-type="hr24">Digital 24H</button>
+      <button id="analog" class="clock-type" data-type="analog" data-message='analog'></button> 
+      <button id="thour" class="clock-type" data-type="hr12" data-message='digital_t'></button> 
+      <button id="fhour" class="clock-type" data-type="hr24" data-message='digital_f'></button>
       <hr> 
       <label id="cSeconds" class="label__checkbox option-hide-seconds">
         <input id="checkedseconds" class="span__check" type="checkbox">
-        <span class="span__label">Hide seconds</span>
+        <span class="span__label" data-message='hide_seconds'></span>
       </label>
 
       <label id="cSpan" class="label__checkbox option-hide-seconds">
         <input id="checkedspin" class="span__check" type="checkbox">
-        <span class="span__label">Analog spin</span>
+        <span class="span__label" data-message='analog_spin'></span>
       </label>
 
       <label id="cStars" class="label__checkbox option-hide-seconds">
         <input id="checkedstars" class="span__check" type="checkbox">
-        <span class="span__label">Stars</span>
+        <span class="span__label" data-message='stars'></span>
       </label>
+      <hr> 
+
+      <label id="cSidebar" class="label__checkbox option-hide-seconds">
+        <input id="checkedsidebar" class="span__check" type="checkbox">
+        <span class="span__label" data-message='hide_sidebar'></span>
+      </label>
+
+      <label id="cSlide" class="label__checkbox option-hide-seconds">
+        <input id="checkedhover" class="span__check" type="checkbox">
+        <span class="span__label" data-message='hover_sidebar'></span>
+      </label>
+
+
     </nav>
   </span>
 </header>
@@ -103,30 +138,29 @@
   <div class='day-name-dial'>
     <div class='ring-back'></div>
     <div class='ring' id='r1'>
-      <h1 class='day-name-preview'>DAY NAME</h1>
-      <h2 class='day-name-text'>MON TUE WED THU FRI SAT SUN</h2>
+      <h1 class='day-name-preview' data-message='day_name'></h1>
+      <h2 class='day-name-text' data-message='day_name_text'></h2>
     </div>
   </div>
   <div class='month-dial'>
     <div class='ring-back'></div>
     <div class='ring' id='r2'>
-      <h1 class='month-preview'>MONTH</h1>
-      <h2 class='month-text'>JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC</h2>
+      <h1 class='month-preview' data-message='month'></h1>
+      <h2 class='month-text' data-message='month_text'></h2>
     </div>
   </div>
   <div class='day-dial'>
     <div class='ring-back'></div>
     <div class='ring' id='r3'>
-      <h1 class='day-preview'>DAY</h1>
+      <h1 class='day-preview' data-message='day'></h1>
       <h2 class='day-text'>01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31</h2>
     </div>
   </div>
 </div>
 
 
-
-
 <script src='jquery.min.js'></script>
+<script src='popup.js'></script>
 <script src='jquery.lettering.min.js'></script>
 <script src="pickr.min.js"></script>
 <script src='main.js'></script>
