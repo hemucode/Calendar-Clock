@@ -1,6 +1,5 @@
 var config = {};
-
-config.homepage = function (){return "https://www.codehemu.com/2022/08/what-is-best-calendar-clock-extension.html"}
+config.homepage = function (){return ""}
 
 config.interface = {
   set size (val) {app.storage.write("interface.size", val)},
@@ -14,8 +13,4 @@ config.interface = {
       "height": 800
     }
   }
-};
-config.welcome = {
-  set lastupdate (val) {app.storage.write("lastupdate", val)},
-  get lastupdate () {return app.storage.read("lastupdate") !== undefined ? app.storage.read("lastupdate") : 0}
 };
